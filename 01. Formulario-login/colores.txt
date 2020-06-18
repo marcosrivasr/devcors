@@ -1,0 +1,8 @@
+Fondo azul
+#73B4FE
+
+Boton
+#4548AD
+
+Boton hover
+#191B6B
