@@ -1,0 +1,167 @@
+:root{
+    --bg-color-page: #73B4FE;
+    --bg-color-btn: #4548AD;
+    --bg-color-btn-hover: #191B6B;
+
+    font-size: 16px;
+
+    --size-sm:  0.5rem;
+    --size-m:   1rem;
+    --size-g:   1.5rem;
+    --size-xg:  2rem;
+    --size-xxg:  3.5rem;
+
+    --border-color:  #ccc;
+    --border-color-hover: #73B4FE;
+    --primary-color:  #000;
+    --secondary-color:  #ccc;
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    color: black;
+}
+
+#main-container{
+    font-size: 0;
+    font-family: 'Merriweather', serif;
+}
+
+#left-container, #right-container{
+    display: inline-block;
+    vertical-align: top;
+    height: 100vh;
+    width: 50%;
+}
+
+#right-container{
+    background-color: var(--bg-color-page);
+    background-image: url(../img/ilustracion.png);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+form{
+    width: 400px;
+    margin: var(--size-xxg) auto;
+    font-size: var(--size-m);
+}
+
+#logo-container{
+    text-align: center;
+}
+#logo-container img{
+    width: 100px;
+}
+
+#title-container h2{
+    font-size: var(--size-xxg);
+    text-align: center;
+    padding: var(--size-g);
+}
+
+#login-social-container{
+    padding: var(--size-g) 0;
+}
+.btn-google{
+    background-color: white;
+    background-image: url(../img/google-icon-small.png);
+    background-repeat: no-repeat;
+    background-position: var(--size-m) center;
+    border: solid 1px var(--border-color);
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    padding: var(--size-sm);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-weight: bolder;
+}
+
+#separator-container{
+    text-align: center;
+    padding: var(--size-g);
+}
+
+#separator-container span{
+    color: var(--secondary-color);
+    font-weight: bolder;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+.line{
+    height: 2px;
+    background-color: var(--border-color);
+    width: 50px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#inputs-container label{
+    display: block;
+    padding: var(--size-sm) 0;
+    font-weight: bolder;
+}
+
+#inputs-container input[type=text],
+#inputs-container input[type=password]{
+    display: block;
+    outline: none;
+    padding: var(--size-sm);
+    width: 100%;
+    border: solid 2px var(--border-color);
+    border-radius: 4px;
+}
+
+#inputs-container input[type=text]:hover,
+#inputs-container input[type=password]:hover{
+    border: solid 2px var(--border-color-hover);
+}
+
+#inputs-container input[type=text]:focus,
+#inputs-container input[type=password]:focus{
+    border: solid 2px var(--border-color-hover);
+}
+
+#options-container{
+    padding: var(--size-m) 0;
+}
+#options-container div{
+    display: inline-block;
+    vertical-align: top;
+}
+#options-container div.right{
+    width: calc(100% - 140px);
+    text-align: right;
+}
+
+#buttons-container{
+    text-align: center;
+    padding: var(--size-g) 0;
+}
+.btn{
+    border: 0;
+    background-color: var(--bg-color-btn);
+    color: white;
+    cursor: pointer;
+    padding: var(--size-sm);
+    width: 100%;
+}
+.btn:hover{
+    background-color: var(--bg-color-btn-hover);
+}
+
+#register-container{
+    color: var(--secondary-color);
+    padding: var(--size-m) 0;
+    text-align: center;
+}
