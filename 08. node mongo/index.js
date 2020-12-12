@@ -3,7 +3,24 @@ const express    = require('express');
 const app        = express();
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
+const { v4: uuidv4} = require('uuid');
 require('dotenv').config();
+
+// almacenamiento de imagenes con Multer
+const multer  = require('multer'); 
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads')
+    },
+    filename: function (req, file, cb) {
+      //cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+      const originalname = file.originalname;
+      const extension = originalname.substring(originalname.lastIndexOf('.'), originalname.length);
+      cb(null, uuidv4() + extension)
+    }
+  }) 
+
+const upload = multer({ storage: storage });
 
 //routes
 const aboutRoute        = require('./routes/about');
@@ -13,6 +30,7 @@ const uploadRoute       = require('./routes/upload');
 const deleteRoute       = require('./routes/delete');
 const insertRoute       = require('./routes/insert');
 const updateRoute       = require('./routes/update');
+const getAllRoute       = require('./routes/getall');
 
 //modelo
 const Foto = require('./models/foto');
@@ -48,12 +66,13 @@ db.once('open', function() {
 
 app.get('/about', aboutRoute);
 app.get('/test', testRoute);
+app.get('/getall', getAllRoute);
 app.get('/get/:id', getitemRoute);
 app.get('/upload', uploadRoute);
 app.get('/delete/:id', deleteRoute);
-
-app.post('/insert', insertRoute);
+app.post('/insert', upload.single('filename'), insertRoute);
 app.post('/update', updateRoute);
+
 
 app.listen(process.env.PORT || 3000, () =>{
     console.log('Servidor iniciado');

@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+  body
+    form(action="/insert", method='POST', enctype='multipart/form-data')
+        label Selecciona una foto
+        input(
+            type='file', 
+            name='filename'
+        )  
+        label Titulo de la imagen
+        input(type="text", name="title")
+        label Descripcion de la imagen  
+        input(type="text", name="description")
+        input(type="submit", value="Cargar imagen") 

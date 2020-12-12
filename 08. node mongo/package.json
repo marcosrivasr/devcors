@@ -10,10 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.10.13"
+    "mongoose": "^5.10.13",
+    "uuid": "^8.3.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
+    "multer": "^1.4.2",
     "nodemon": "^2.0.6",
     "pug": "^3.0.0"
   }

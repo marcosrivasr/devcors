@@ -1,3 +1,3 @@
 module.exports = (req, res) => {
-    res.send(`upload`);
+    res.render('upload', { title: 'Hey', message: 'Hello there!'});
 }

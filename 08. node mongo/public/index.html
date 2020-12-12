@@ -7,6 +7,21 @@
 </head>
 <body>
     <h1>App de fotos</h1>
-    <p>Hola Mundo</p>
+    <div id="fotos-container">
+
+    </div>
+
+    <script>
+
+        fetch('http://localhost:7000/getall')
+        .then(res => res.json())
+        .then(json => {
+            for(foto of json){
+                const html = `<img src="http://localhost:7000/uploads/${foto.filename}" />`;
+                document.querySelector('#fotos-container').innerHTML+= html;
+            }
+        });
+
+    </script>
 </body>
 </html>
