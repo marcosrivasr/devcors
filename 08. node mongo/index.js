@@ -2,8 +2,8 @@
 const express    = require('express');
 const app        = express();
 const mongoose   = require('mongoose');
-const bodyParser = require('body-parser');
 const { v4: uuidv4} = require('uuid');
+const cors = require('cors');
 require('dotenv').config();
 
 // almacenamiento de imagenes con Multer
@@ -36,9 +36,10 @@ const getAllRoute       = require('./routes/getall');
 const Foto = require('./models/foto');
 
 // middleware
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 app.use(express.static(__dirname + '/public'));
+app.use(cors());
 
 //template engine
 app.set('view engine', 'pug');
