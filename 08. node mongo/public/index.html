@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>App de fotos</h1>
-    <div id="fotos-container">
-
+    <menu>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/upload">Subir foto</a></li>
+    
+        </ul>
+    </menu>
+    <div id="main-container">
+        <h1>Mis fotos</h1>
+        <div id="fotos-container">
+        </div>
     </div>
+    
 
     <script>
 
@@ -17,10 +27,12 @@
         .then(res => res.json())
         .then(json => {
             for(foto of json){
-                const html = `<img src="http://localhost:7000/uploads/${foto.filename}" />`;
+                console.log(foto);
+                const html = `<a href="/get/${foto._id}"><img width="100%" src="http://localhost:7000/uploads/${foto.filename}" /></a>`;
                 document.querySelector('#fotos-container').innerHTML+= html;
             }
-        });
+        })
+        .catch(error => console.error(error));
 
     </script>
 </body>
