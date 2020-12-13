@@ -1,7 +1,10 @@
+doctype html
 html
   head
     title= title
+    link(rel='stylesheet', type='text/css', href='/css/main.css')
   body
+    include header.pug
     form(action="/insert", method='POST', enctype='multipart/form-data')
         label Selecciona una foto
         input(
